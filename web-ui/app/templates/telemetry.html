@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Telemetry Data for Device {{ device_id }}</title>
+</head>
+<body>
+    <h1>Telemetry Data for Device {{ device_id }}</h1>
+    {% if telemetry_data %}
+    <table border="1">
+        <tr>
+            <th>Timestamp</th>
+            <th>Data Type</th>
+            <th>Value</th>
+        </tr>
+        {% for telemetry in telemetry_data %}
+        <tr>
+            <td>{{ telemetry.timestamp }}</td>
+            <td>{{ telemetry.data_type }}</td>
+            <td>{{ telemetry.value }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+    <p>No telemetry data available for this device.</p>
+    {% endif %}
+</body>
+</html>

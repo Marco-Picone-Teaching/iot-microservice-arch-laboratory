@@ -1,0 +1,56 @@
+version: '3.8'
+
+services:
+
+  my-mosquitto-broker:
+    container_name: my-mosquitto-broker
+    image: eclipse-mosquitto:2.0.12
+    ports:
+      - "1883:1883"
+    volumes:
+      - ${PWD}/mosquitto.conf:/mosquitto/config/mosquitto.conf
+      - ${PWD}/data:/mosquitto/data
+      - ${PWD}/log:/mosquitto/log
+    restart: always
+    networks:
+      - iot_network
+
+  http-inventory-api:
+    container_name: http-inventory-api-lab
+    image: http_iot_inventory_api_lab:0.1
+    ports:
+      - "7070:7070"
+    volumes:
+      - ${PWD}/target_api_conf.yaml:/app/conf.yaml
+    restart: always
+    networks:
+      - iot_network
+
+  web-ui:
+    container_name: web-ui-lab
+    image: web-ui-lab:0.1
+    ports:
+      - "7071:7071"
+    volumes:
+      - ${PWD}/target_web_conf.yaml:/app/web_conf.yaml
+    restart: always
+    depends_on:
+      - http-inventory-api
+    networks:
+      - iot_network
+  
+  mqtt_data_fetcher:
+    container_name: mqtt_data_fetcher_lab
+    image: mqtt_data_fetcher_lab:0.1
+    volumes:
+      - ${PWD}/target_fetcher_conf.yaml:/app/fetcher_conf.yaml
+    restart: always
+    depends_on:
+      - my-mosquitto-broker
+      - http-inventory-api
+    networks:
+      - iot_network
+
+networks:
+  iot_network:
+    driver: bridge
