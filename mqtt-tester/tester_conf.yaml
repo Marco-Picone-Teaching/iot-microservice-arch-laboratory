@@ -1,0 +1,6 @@
+# MQTT Broker used by the testers (the broker container publishes the port 1883 on the host)
+broker_ip: "127.0.0.1"
+broker_port: 1883
+# Optional credentials (null if the broker does not require authentication)
+username: null
+password: null

@@ -1,0 +1,6 @@
+# Web UI configuration (local development)
+web:
+  host: "0.0.0.0"
+  port: 7071
+  # Base URL of the IoT Inventory API
+  api_base_url: "http://127.0.0.1:7070/api/v1/iot/inventory"

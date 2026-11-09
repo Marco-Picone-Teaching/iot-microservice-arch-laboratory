@@ -1,0 +1,20 @@
+[project]
+name = "iot-inventory-api"
+version = "0.1.0"
+description = "IoT Inventory RESTful HTTP API microservice (Flask + Flask-RESTful) storing and exposing the telemetry data of the IoT devices"
+requires-python = ">=3.10"
+dependencies = [
+    "flask>=2.3,<3",
+    "flask-restful>=0.3.10",
+    "pyyaml>=6.0",
+]
+
+[project.scripts]
+iot-inventory-api = "iot_inventory_api.api_server:main"
+
+[build-system]
+requires = ["uv_build>=0.13.0,<0.14"]
+build-backend = "uv_build"
+
+[tool.uv.build-backend]
+module-name = "iot_inventory_api"

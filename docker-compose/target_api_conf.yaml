@@ -1,3 +1,4 @@
+# RESTful API Server configuration (Docker deployment)
 rest:
   api_prefix: "/api/v1/iot/inventory"
   host: "0.0.0.0"

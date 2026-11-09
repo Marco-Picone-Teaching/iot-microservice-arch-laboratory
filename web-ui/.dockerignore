@@ -1,0 +1,6 @@
+# Files not sent to the Docker build context
+.venv/
+**/__pycache__/
+.mypy_cache/
+.idea/
+.git/

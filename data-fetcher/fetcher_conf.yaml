@@ -1,0 +1,12 @@
+# MQTT Data Fetcher configuration (local development)
+broker_ip: "127.0.0.1"
+broker_port: 1883
+# Unique MQTT client id of the fetcher
+client_id: "mqtt-data-fetcher"
+# Optional credentials (null if the broker does not require authentication)
+username: null
+password: null
+# Topic filter of the device telemetry (device/<device_id>/temperature)
+target_telemetry_topic: "device/+/temperature"
+# Devices endpoint of the IoT Inventory API (the telemetry is sent to <device_api_url>/<device_id>/telemetry)
+device_api_url: "http://127.0.0.1:7070/api/v1/iot/inventory/device"

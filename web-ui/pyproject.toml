@@ -1,0 +1,20 @@
+[project]
+name = "iot-inventory-web-ui"
+version = "0.1.0"
+description = "IoT Inventory Web UI microservice (Flask) displaying the telemetry data of the IoT Inventory API"
+requires-python = ">=3.10"
+dependencies = [
+    "flask>=2.3,<3",
+    "pyyaml>=6.0",
+    "requests>=2.31",
+]
+
+[project.scripts]
+iot-inventory-web-ui = "iot_inventory_web_ui.web_server:main"
+
+[build-system]
+requires = ["uv_build>=0.13.0,<0.14"]
+build-backend = "uv_build"
+
+[tool.uv.build-backend]
+module-name = "iot_inventory_web_ui"

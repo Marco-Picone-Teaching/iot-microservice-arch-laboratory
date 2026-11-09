@@ -1,3 +1,4 @@
+# Web UI configuration (Docker deployment: the API is reached through its container name)
 web:
   host: "0.0.0.0"
   port: 7071

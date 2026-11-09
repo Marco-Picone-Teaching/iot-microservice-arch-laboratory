@@ -1,4 +1,8 @@
+# MQTT Data Fetcher configuration (Docker deployment: the other services are reached through their container names)
 broker_ip: "my-mosquitto-broker"
 broker_port: 1883
+client_id: "mqtt-data-fetcher"
+username: null
+password: null
 target_telemetry_topic: "device/+/temperature"
 device_api_url: "http://http-inventory-api-lab:7070/api/v1/iot/inventory/device"
